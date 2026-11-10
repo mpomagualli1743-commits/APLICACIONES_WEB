@@ -1,0 +1,354 @@
+
+/* =========================================
+   ACTIVIDAD 3 - CALCULADORA WEB
+   Diseño profesional con CSS3
+========================================= */
+
+/* Variables de diseño */
+:root {
+    --background: #0b1120;
+    --calculator: #151f32;
+    --display: #0c1527;
+    --button: #25334b;
+    --button-hover: #344761;
+    --text: #ffffff;
+    --text-muted: #8998ae;
+    --primary: #2563eb;
+    --primary-hover: #3b82f6;
+    --operator: #354b6c;
+    --function: #34445d;
+    --border: rgba(255, 255, 255, 0.07);
+    --shadow: rgba(0, 0, 0, 0.4);
+}
+
+/* Configuración general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background:
+        radial-gradient(circle at top left, #172c50, transparent 40%),
+        linear-gradient(135deg, #080e1b, #111d33);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+/* Contenedor principal */
+.app-container {
+    width: 100%;
+    max-width: 430px;
+}
+
+/* Calculadora */
+.calculator {
+    background: var(--calculator);
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    padding: 25px;
+    box-shadow: 0 25px 60px var(--shadow);
+}
+
+/* Encabezado */
+.calculator-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.brand-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #2563eb, #60a5fa);
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+
+.brand h1 {
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.brand p {
+    color: var(--text-muted);
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.theme-button {
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--button);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 17px;
+    transition: 0.2s;
+}
+
+.theme-button:hover {
+    background: var(--button-hover);
+}
+
+/* Pantalla */
+.display {
+    background: var(--display);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 22px;
+    min-height: 155px;
+    margin-bottom: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: right;
+    overflow: hidden;
+}
+
+.display-label {
+    color: var(--text-muted);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-align: left;
+    font-weight: 700;
+}
+
+.previous-operation {
+    color: var(--text-muted);
+    font-size: 16px;
+    min-height: 22px;
+    word-break: break-all;
+}
+
+.current-operation {
+    font-size: 38px;
+    font-weight: 600;
+    word-break: break-all;
+    overflow-wrap: anywhere;
+    margin: 5px 0;
+}
+
+.display-status {
+    color: #60a5fa;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    text-align: left;
+}
+
+/* Teclado */
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.key {
+    min-height: 62px;
+    border: none;
+    border-radius: 14px;
+    background: var(--button);
+    color: var(--text);
+    font-size: 21px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.key:hover {
+    background: var(--button-hover);
+    transform: translateY(-2px);
+}
+
+.key:active {
+    transform: scale(0.94);
+}
+
+.key-function {
+    background: var(--function);
+    color: #93c5fd;
+}
+
+.key-function:hover {
+    background: #435675;
+}
+
+.key-operator {
+    background: var(--operator);
+    color: #60a5fa;
+    font-size: 25px;
+}
+
+.key-operator:hover {
+    background: #46618a;
+}
+
+.key-equal {
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    color: white;
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+}
+
+.key-equal:hover {
+    background: var(--primary-hover);
+}
+
+/* Historial */
+.history-section {
+    margin-top: 28px;
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.history-header h2 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.history-header h2 i {
+    color: #60a5fa;
+    margin-right: 6px;
+}
+
+.history-header button {
+    background: transparent;
+    border: none;
+    color: #60a5fa;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.history-header button:hover {
+    color: white;
+}
+
+.history-list {
+    list-style: none;
+    max-height: 130px;
+    overflow-y: auto;
+}
+
+.history-list li {
+    padding: 10px 12px;
+    margin-bottom: 7px;
+    background: rgba(255, 255, 255, 0.035);
+    border-radius: 9px;
+    font-size: 12px;
+    color: #cbd5e1;
+}
+
+.empty-history {
+    color: var(--text-muted) !important;
+    text-align: center;
+}
+
+/* Pie de página */
+.calculator-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 22px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+/* Accesibilidad: teclado */
+button:focus-visible {
+    outline: 2px solid #60a5fa;
+    outline-offset: 3px;
+}
+
+/* Diseño adaptable */
+@media (max-width: 480px) {
+    body {
+        padding: 12px;
+    }
+
+    .calculator {
+        padding: 18px;
+        border-radius: 20px;
+    }
+
+    .key {
+        min-height: 57px;
+        font-size: 19px;
+    }
+
+    .current-operation {
+        font-size: 32px;
+    }
+
+    .keypad {
+        gap: 9px;
+    }
+
+    .calculator-footer {
+        font-size: 8px;
+    }
+}
+
+/* =========================================
+   MODO CLARO
+========================================= */
+
+body.light-mode {
+    --background: #eef2f9;
+    --calculator: #ffffff;
+    --display: #f1f5fb;
+    --button: #e5ebf5;
+    --button-hover: #d3deee;
+    --text: #172033;
+    --text-muted: #65748b;
+    --operator: #dbe7f8;
+    --function: #e0e9f6;
+    --border: rgba(15, 23, 42, 0.1);
+    --shadow: rgba(15, 23, 42, 0.12);
+}
+
+body.light-mode {
+    background: linear-gradient(135deg, #e5edfa, #f8fafc);
+}
+
+body.light-mode .key-function {
+    color: #2563eb;
+}
+
+body.light-mode .key-operator {
+    color: #2563eb;
+}
+
+body.light-mode .key-equal {
+    color: #ffffff;
+}
+
+body.light-mode .history-list li {
+    color: #334155;
+}

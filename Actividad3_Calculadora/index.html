@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Calculadora web desarrollada con HTML, CSS y JavaScript.">
+
+    <title>Calculadora Web | Proyecto Académico</title>
+
+    <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Iconos -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <main class="app-container">
+
+        <section class="calculator">
+
+            <!-- Encabezado -->
+            <header class="calculator-header">
+                <div class="brand">
+                    <div class="brand-icon">
+                        <i class="fa-solid fa-calculator"></i>
+                    </div>
+
+                    <div>
+                        <h1>Calculadora</h1>
+                        <p>Calculadora inteligente</p>
+                    </div>
+                </div>
+
+                <button class="theme-button"
+                        id="themeButton"
+                        aria-label="Cambiar tema">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </header>
+
+            <!-- Pantalla -->
+            <section class="display" aria-label="Pantalla de cálculo">
+
+                <div class="display-label">OPERACIÓN</div>
+
+                <div class="previous-operation"
+                     id="previousOperation"
+                     aria-live="polite">
+                </div>
+
+                <div class="current-operation"
+                     id="currentOperation"
+                     aria-live="polite">
+                    0
+                </div>
+
+                <div class="display-status" id="displayStatus">
+                    LISTO PARA CALCULAR
+                </div>
+
+            </section>
+
+            <!-- Teclado -->
+            <section class="keypad" aria-label="Teclado de la calculadora">
+
+                <button class="key key-function" data-action="clear">AC</button>
+                <button class="key key-function" data-action="delete">
+                    <i class="fa-solid fa-delete-left"></i>
+                </button>
+                <button class="key key-function" data-action="percent">%</button>
+                <button class="key key-operator" data-value="/">÷</button>
+
+                <button class="key" data-value="7">7</button>
+                <button class="key" data-value="8">8</button>
+                <button class="key" data-value="9">9</button>
+                <button class="key key-operator" data-value="*">×</button>
+
+                <button class="key" data-value="4">4</button>
+                <button class="key" data-value="5">5</button>
+                <button class="key" data-value="6">6</button>
+                <button class="key key-operator" data-value="-">−</button>
+
+                <button class="key" data-value="1">1</button>
+                <button class="key" data-value="2">2</button>
+                <button class="key" data-value="3">3</button>
+                <button class="key key-operator" data-value="+">+</button>
+
+                <button class="key key-function" data-action="sign">±</button>
+                <button class="key" data-value="0">0</button>
+                <button class="key" data-value=".">.</button>
+                <button class="key key-equal" data-action="calculate">=</button>
+
+            </section>
+
+            <!-- Historial -->
+            <section class="history-section">
+
+                <div class="history-header">
+                    <h2>
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        Historial
+                    </h2>
+
+                    <button id="clearHistory">
+                        Limpiar
+                    </button>
+                </div>
+
+                <ul id="historyList" class="history-list">
+                    <li class="empty-history">
+                        No hay operaciones todavía.
+                    </li>
+                </ul>
+
+            </section>
+
+            <!-- Pie de página -->
+            <footer class="calculator-footer">
+                <span>MAURO P0MAGUALLI</span>
+                <span>ACTIVIDAD 3</span>
+            </footer>
+
+        </section>
+
+    </main>
+
+    <!-- Lógica JavaScript -->
+    <script src="js/script.js"></script>
+
+</body>
+</html>
